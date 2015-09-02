@@ -1,6 +1,4 @@
-/* The program checks whether the same jmp_buf structure may be used for many
- * jumps
- */
+/* Topic: setjmp() and longjmp() - stack unwinding */
  
 #include<stdio.h>
 #include<setjmp.h>

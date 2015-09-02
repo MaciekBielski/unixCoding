@@ -1,4 +1,6 @@
-/* 1) what happens when you returns from swapcontext?
+/* Topic: context allocation and switching 2
+ *
+ * 1) what happens when you returns from swapcontext?
  * if uc_link is not null then in will return to the place swapcontext,
  * uc_link keeps only an address of something that is not defined yet, but will
  * be later

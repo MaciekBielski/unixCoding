@@ -1,4 +1,5 @@
-/* http://www.chiark.greenend.org.uk/~sgtatham/coroutines.html
+/* Topic: implementing 'yield' using tricky feature of switch construction,
+ * http://www.chiark.greenend.org.uk/~sgtatham/coroutines.html
  * 
  * This code presents how to yield from any function by using 3 simple macros.
  * When the function is invoked again. That solution is easier than keeping

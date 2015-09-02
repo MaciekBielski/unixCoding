@@ -1,4 +1,6 @@
-/* This program presents how to change context to the new allocated one. It is
+/* Topic: context allocation and switching
+ *
+ * This program presents how to change context to the new allocated one. It is
  * more than just setjmp/longjmp - those two are for stack unwinding, whereas
  * their jumping points need to remain valid, which means their stack cannot be
  * invalidated */

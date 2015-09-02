@@ -1,4 +1,5 @@
-/*
+/* Topic: dealing with asynchronous events using aio library2
+ *
  * This is variant of aio_edp.c, with a following change:
  * - in setAioBuffer aio_sigevent.sigev_value will be set to the pointer to
  *   some custom value,

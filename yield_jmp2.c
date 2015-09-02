@@ -1,4 +1,6 @@
-/* inspired by: https://en.wikipedia.org/wiki/Setjmp.h
+/* Topic: setjmp() and longjmp()
+ *
+ * inspired by: https://en.wikipedia.org/wiki/Setjmp.h
  * nice example of taking turns cooperative tasks
  */
 

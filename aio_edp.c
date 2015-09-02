@@ -1,4 +1,5 @@
-/*
+/* Topic: dealing with asynchronous events using aio library
+ *
  * This program presents handling with asynchronous events in a different
  * approach. Instead of setting handler on file descriptor like in edp1.c,
  * here:

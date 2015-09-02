@@ -1,4 +1,5 @@
-/*
+/* Topic: dealing asynchronous events with O_ASYNC flag of a file descritor
+ *
  * This program presents handling asynchronous events with following approach:
  * - event source is defined by a file descriptor [here: STDIN_FILENO]
  * - process responsible for handling with SIGIO and SIGURG on that file
