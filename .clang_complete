@@ -4,3 +4,4 @@
 -D_XOPEN_SOURCE 
 -Wall
 -lrt
+-pthread
