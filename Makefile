@@ -1,6 +1,6 @@
 CC=color-gcc
 CFLAGS=-std=c99 -g -D_POSIX_C_SOURCE=200809L -D_XOPEN_SOURCE -Wall -pedantic
-LFLAGS=-lrt
+LFLAGS=-lrt -lncurses -pthread
 
 sockets_client: sockets_common.c sockets_client.c 
 	@${CC} -std=c99 -D_POSIX_C_SOURCE=200809L -Wall -pedantic -o $@ $^
@@ -15,8 +15,7 @@ sem_sysv_consumer:sem_sysv_common.c sem_sysv_consumer.c
 	@${CC} -std=c99 -D_POSIX_C_SOURCE=200809L -D_XOPEN_SOURCE -Wall -pedantic -o $@ $^
 
 %: %.c
-	${CC} ${CFLAGS} -o $@ $< -lncurses -lrt -pthread
-
+	${CC} ${CFLAGS} -o $@ $< ${LFLAGS}
 
 clean:
 	@-rm -rf o_async_edp 
@@ -30,10 +29,9 @@ clean:
 	@-rm -rf switch_ctx2
 	@-rm -rf thread_key_barriers
 	@-rm -rf pts_snoop
-	@-rm -rf pts_snoop2
 	@-rm -rf showIP sockets_client sockets_server child_signals
-   	@-rm -rf sem_sysv_producer sem_sysv_consumer
 	@-rm -rf sem_posix_producer sem_posix_consumer
+	@-rm -rf sem_sysv_producer sem_sysv_consumer
 	@echo '[+] cleaned!'
 
 
