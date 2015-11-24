@@ -1,8 +1,10 @@
-/* Data samples need to be provided line by line, whereas '\n' character is
- * removed just before sending
- * Each row can have the length of DATA_SZ-2 characters + '\n' because only
- * DATA_SZ - 1 characters will be read by fgets 
- * All wrong rows will be dropped*/
+/* Data samples need to be provided line by line,
+ * Each row can have the length of DATA_SZ-2 characters: [#DATA_SZ-2#|\n|\0]
+ * - fgets read max DATA_SZ-1 (including \n) and appends \0
+ * - '\n' is used to verify the end of a line and detect too long rows
+ * All wrong rows will be dropped
+ * After parsing the trailing '\n' is replaced by '\0'
+ */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -87,8 +89,6 @@ int main(int argc, char** argv)
     //freeing unneeded resources
     freeaddrinfo(clientInfo);
     memset(data,0,DATA_SZ);
-    /* Data are provided line by line but the '\n' character is removed
-     * ! strlen does not consider \0 byte */
     while( fgets(data, DATA_SZ, stdin) != NULL)
     {
         //row verification
@@ -108,6 +108,7 @@ int main(int argc, char** argv)
         }
         data[last] = '\0';
         recvAskLine(clientSock, req, REQ_SZ);
+        fprintf(stderr, "---\n");
         sendLine(clientSock, data, DATA_SZ);
         fprintf(stderr, "Client sent: %s\n", data); fflush(stderr);
     }
