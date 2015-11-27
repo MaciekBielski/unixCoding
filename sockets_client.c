@@ -33,6 +33,8 @@ static inline void recvAskLine(const int srcSock, char *buff, int buffSz)
         fprintf(stderr, "Client received: %s\n", buff); fflush(stderr);
         if( !strncmp( buff, REQ_STR, strlen(REQ_STR)+1 ))
             break;    
+        else
+            break;    
     }
     while(1);
 }
